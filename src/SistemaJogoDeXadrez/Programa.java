@@ -9,6 +9,8 @@ public class Programa {
 		
 		PartidaDeXadrez partidaDeXadrez = new PartidaDeXadrez();
 		UI.printBoard(partidaDeXadrez.getPecas());
+		UI.printBoard(partidaDeXadrez.getPecas());
+		System.out.println("Sistem Eudes Paz");
 
 	}
 
