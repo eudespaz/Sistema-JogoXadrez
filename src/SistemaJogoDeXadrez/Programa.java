@@ -1,17 +1,14 @@
 package SistemaJogoDeXadrez;
 
-import gameborda.Posicao;
-import gameborda.Tabuleiro;
+import xadrez.PartidaDeXadrez;
 
 public class Programa {
 
 	public static void main(String[] args) {
 	
 		
-		Tabuleiro tab = new Tabuleiro(8, 8);
-		
-		System.out.println(tab);
-	
+		PartidaDeXadrez partidaDeXadrez = new PartidaDeXadrez();
+		UI.printBoard(partidaDeXadrez.getPecas());
 
 	}
 
