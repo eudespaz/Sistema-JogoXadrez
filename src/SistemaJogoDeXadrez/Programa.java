@@ -11,6 +11,7 @@ public class Programa {
 		UI.printBoard(partidaDeXadrez.getPecas());
 		UI.printBoard(partidaDeXadrez.getPecas());
 		System.out.println("Sistem Eudes Paz");
+		System.out.println("Sistem Eudes Paz");
 
 	}
 
