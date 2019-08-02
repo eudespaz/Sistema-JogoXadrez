@@ -1,5 +1,7 @@
 package xadrez;
 
+import gameborda.Peca;
+import gameborda.Posicao;
 import gameborda.Tabuleiro;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
@@ -24,6 +26,27 @@ public class PartidaDeXadrez {
 				
 		
 	}
+	public PecaDeXadrez performaceMoverXadrez(XadrezPosicao posicaoFonte, XadrezPosicao posicionarAlvo) {
+		Posicao fonte = posicaoFonte.toPosicao();
+		Posicao alvo = posicionarAlvo.toPosicao();
+		validatePosicaoFonte(fonte);
+		Peca capturarPeca = realizarMovimento(fonte, alvo);
+		return (PecaDeXadrez)capturarPeca;
+	}
+	
+	private Peca realizarMovimento(Posicao fonte, Posicao alvo) {
+		Peca p = tabuleiro.removePeca(fonte);
+		Peca capturarPeca = tabuleiro.removePeca(alvo);
+		tabuleiro.lugarPeca(p, alvo);
+		return capturarPeca;
+	}
+	
+	private void validatePosicaoFonte(Posicao posicao) {
+		if (!tabuleiro.pecaPedaco(posicao)) {
+			throw new ExcecaoDoXadrez("Não existe peça nesta posição");
+		}
+	}
+	
 	private void novaCordenadaXadrez(char coluna, int linha, PecaDeXadrez peca) {
 		tabuleiro.lugarPeca(peca, new XadrezPosicao(coluna, linha).toPosicao());
 	}
