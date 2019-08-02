@@ -45,6 +45,10 @@ public class PartidaDeXadrez {
 		if (!tabuleiro.pecaPedaco(posicao)) {
 			throw new ExcecaoDoXadrez("Não existe peça nesta posição");
 		}
+		if (!tabuleiro.peca(posicao).ChamarNovamentePossivelMovimentacao()) {
+			throw new ExcecaoDoXadrez("Não é possivel mover a peça");
+			
+		}
 	}
 	
 	private void novaCordenadaXadrez(char coluna, int linha, PecaDeXadrez peca) {
