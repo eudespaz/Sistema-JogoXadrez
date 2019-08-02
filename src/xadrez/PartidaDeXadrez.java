@@ -1,6 +1,5 @@
 package xadrez;
 
-import gameborda.Posicao;
 import gameborda.Tabuleiro;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
@@ -25,11 +24,14 @@ public class PartidaDeXadrez {
 				
 		
 	}
+	private void novaCordenadaXadrez(char coluna, int linha, PecaDeXadrez peca) {
+		tabuleiro.lugarPeca(peca, new XadrezPosicao(coluna, linha).toPosicao());
+	}
 	
 	private void configuracaoInicial() {
-		tabuleiro.lugarPeca(new Torre(tabuleiro, Cor.BRANCO), new Posicao(2, 1));
-		tabuleiro.lugarPeca(new Rei(tabuleiro, Cor.PRETO), new Posicao(0, 4));
-		tabuleiro.lugarPeca(new Rei(tabuleiro, Cor.BRANCO), new Posicao(7, 4));
+		novaCordenadaXadrez('b', 6, new Torre(tabuleiro, Cor.BRANCO));
+		novaCordenadaXadrez('e', 8, new Rei(tabuleiro, Cor.PRETO));
+		novaCordenadaXadrez('e', 1,new Rei(tabuleiro, Cor.BRANCO));
 	}
 }
 
