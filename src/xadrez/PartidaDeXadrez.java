@@ -29,16 +29,20 @@ public class PartidaDeXadrez {
 	}
 	
 	private void configuracaoInicial() {
-		novaCordenadaXadrez('b', 6, new Torre(tabuleiro, Cor.BRANCO));
-		novaCordenadaXadrez('e', 8, new Rei(tabuleiro, Cor.PRETO));
-		novaCordenadaXadrez('e', 1,new Rei(tabuleiro, Cor.BRANCO));
-	}
+		
+			novaCordenadaXadrez('c', 1, new Torre(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('c', 2, new Torre(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('d', 2, new Torre(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('e', 2, new Torre(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('e', 1, new Torre(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('d', 1, new Rei(tabuleiro, Cor.BRANCO));
+	  
+			novaCordenadaXadrez('c', 7, new Torre(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('c', 8, new Torre(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('d', 7, new Torre(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('e', 7, new Torre(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('e', 8, new Torre(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('d', 8, new Rei(tabuleiro, Cor.PRETO));
+	        
+		}
 }
-
-
-
-
-
-
-
-
