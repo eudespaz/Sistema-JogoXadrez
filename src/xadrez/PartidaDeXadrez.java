@@ -30,9 +30,11 @@ public class PartidaDeXadrez {
 		Posicao fonte = posicaoFonte.toPosicao();
 		Posicao alvo = posicionarAlvo.toPosicao();
 		validatePosicaoFonte(fonte);
+		ValidacaodestinoPosicao(fonte, alvo);
 		Peca capturarPeca = realizarMovimento(fonte, alvo);
 		return (PecaDeXadrez)capturarPeca;
 	}
+	
 	
 	private Peca realizarMovimento(Posicao fonte, Posicao alvo) {
 		Peca p = tabuleiro.removePeca(fonte);
@@ -48,6 +50,13 @@ public class PartidaDeXadrez {
 		if (!tabuleiro.peca(posicao).ChamarNovamentePossivelMovimentacao()) {
 			throw new ExcecaoDoXadrez("Não é possivel mover a peça");
 			
+		}
+	}
+	
+
+	private void ValidacaodestinoPosicao(Posicao fonte, Posicao alvo) {
+		if (!tabuleiro.peca(fonte).possivelMovimentacao(alvo)) {
+			throw new ExcecaoDoXadrez("A peça escolhida não pode mover para o destino");
 		}
 	}
 	
