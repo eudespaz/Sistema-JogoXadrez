@@ -1,5 +1,7 @@
 package xadrez;
 
+
+
 import gameborda.Peca;
 import gameborda.Posicao;
 import gameborda.Tabuleiro;
@@ -26,6 +28,15 @@ public class PartidaDeXadrez {
 				
 		
 	}
+	
+	public boolean[][] possivelMovimentacao(XadrezPosicao posicaoFonte ) {
+		Posicao posicao = posicaoFonte.toPosicao();
+		validatePosicaoFonte(posicao);
+		return tabuleiro.peca(posicao).possivelMovimentacao();
+		
+	}
+			
+			
 	public PecaDeXadrez performaceMoverXadrez(XadrezPosicao posicaoFonte, XadrezPosicao posicionarAlvo) {
 		Posicao fonte = posicaoFonte.toPosicao();
 		Posicao alvo = posicionarAlvo.toPosicao();
