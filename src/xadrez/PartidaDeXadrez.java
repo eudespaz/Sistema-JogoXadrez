@@ -10,10 +10,15 @@ import xadrez.pecas.Torre;
 
 public class PartidaDeXadrez {
 	
+	private int turno;
 	private Tabuleiro tabuleiro;
+	private Cor jogadores;
 	
 	public PartidaDeXadrez() {
+		
 		tabuleiro = new Tabuleiro(8, 8);
+		turno = 1;
+		jogadores = Cor.BRANCO;
 		configuracaoInicial();
 	}
 
@@ -29,6 +34,15 @@ public class PartidaDeXadrez {
 		
 	}
 	
+	public int getTurno() {
+		return turno;
+	}
+
+	public Cor getJogadores() {
+		return jogadores;
+	}
+
+
 	public boolean[][] possivelMovimentacao(XadrezPosicao posicaoFonte ) {
 		Posicao posicao = posicaoFonte.toPosicao();
 		validatePosicaoFonte(posicao);
@@ -43,6 +57,7 @@ public class PartidaDeXadrez {
 		validatePosicaoFonte(fonte);
 		ValidacaodestinoPosicao(fonte, alvo);
 		Peca capturarPeca = realizarMovimento(fonte, alvo);
+		passarTurno();
 		return (PecaDeXadrez)capturarPeca;
 	}
 	
@@ -58,6 +73,10 @@ public class PartidaDeXadrez {
 		if (!tabuleiro.pecaPedaco(posicao)) {
 			throw new ExcecaoDoXadrez("Não existe peça nesta posição");
 		}
+		if (jogadores != ((PecaDeXadrez)tabuleiro.peca(posicao)).getCor()) {
+			throw new ExcecaoDoXadrez("A peça escolhida não é sua.");
+			
+		}
 		if (!tabuleiro.peca(posicao).ChamarNovamentePossivelMovimentacao()) {
 			throw new ExcecaoDoXadrez("Não é possivel mover a peça");
 			
@@ -69,6 +88,11 @@ public class PartidaDeXadrez {
 		if (!tabuleiro.peca(fonte).possivelMovimentacao(alvo)) {
 			throw new ExcecaoDoXadrez("A peça escolhida não pode mover para o destino");
 		}
+	}
+	
+	private void passarTurno() {
+		turno++;
+		jogadores = (jogadores == Cor.BRANCO) ? Cor.PRETO : Cor.BRANCO;
 	}
 	
 	private void novaCordenadaXadrez(char coluna, int linha, PecaDeXadrez peca) {

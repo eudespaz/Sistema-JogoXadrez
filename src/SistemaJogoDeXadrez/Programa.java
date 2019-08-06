@@ -20,7 +20,7 @@ public class Programa {
 		while (true) { 
 			try {
 				UI.clearScreen();
-				UI.printBoard(partidaDeXadrez.getPecas());
+				UI.printXadrez(partidaDeXadrez);
 				System.out.println();
 				System.out.print("Origem: ");
 				XadrezPosicao fonte = UI.LerXadrezPosicao(entrada);
