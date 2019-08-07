@@ -41,6 +41,13 @@ public class Programa {
 					capiturada.add(capturarPeca);
 				}
 				
+				if (partidaDeXadrez.getPromocao() != null) {
+					System.out.print("Entre com a peças (B/C/T/Ŕ): ");
+					String type = entrada.nextLine();
+					partidaDeXadrez.replacePromocaoPeca(type);
+					
+				}
+				
 			}
 			catch (ExcecaoDoXadrez e){
 				System.out.println(e.getMessage());
