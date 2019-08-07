@@ -56,10 +56,10 @@ public class UI {
 			
 	}
 	
-	public static void printXadrez(PartidaDeXadrez partidaDeXadrez, List<PecaDeXadrez> capiturada) {
+	public static void printXadrez(PartidaDeXadrez partidaDeXadrez, List<PecaDeXadrez> capturada) {
 		printBoard(partidaDeXadrez.getPecas());
 		System.out.println();
-		printCapituraPecas(capiturada);
+		printCapituraPecas(capturada);
 		System.out.println();
 		System.out.println("Turno: " + partidaDeXadrez.getTurno());
 		if (!partidaDeXadrez.getChequeMate()) {
@@ -120,7 +120,7 @@ public class UI {
 	private static void printCapituraPecas(List<PecaDeXadrez> capiturar) {
 		List<PecaDeXadrez> pretas = capiturar.stream().filter(x -> x.getCor() == Cor.PRETO).collect(Collectors.toList()); 
 		List<PecaDeXadrez> brancas = capiturar.stream().filter(x -> x.getCor() == Cor.BRANCO).collect(Collectors.toList());
-		System.out.println("Peças Capituradas: ");
+		System.out.println("Peças Capturadas: ");
 		System.out.print("Branco: ");
 		System.out.print(ANSI_WHITE);
 		System.out.print(Arrays.toString(brancas.toArray()));
