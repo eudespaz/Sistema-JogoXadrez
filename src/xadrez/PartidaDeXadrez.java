@@ -15,7 +15,8 @@ public class PartidaDeXadrez {
 	private int turno;
 	private Tabuleiro tabuleiro;
 	private Cor jogadores;
-	private boolean cheque; 
+	private boolean cheque;
+	private boolean chequeMate;
 	
 	private List<Peca> pecaDoTabuleiro = new ArrayList<>();
 	private List<Peca> capiturarPecas = new ArrayList<>();
@@ -38,6 +39,10 @@ public class PartidaDeXadrez {
 		}
 		return mat;
 				
+	}
+	
+	public boolean getChequeMate() {
+		return chequeMate;
 	}
 	
 	public int getTurno() {
@@ -74,7 +79,13 @@ public class PartidaDeXadrez {
 		
 		cheque = (testeCheque(oponente(jogadores))) ? true : false;
 		
-		passarTurno();
+		if (testeChequeMate(oponente(jogadores))) {
+			chequeMate = true;
+		}
+		else {
+			passarTurno();
+		
+		}
 		return (PecaDeXadrez)capturarPeca;
 	}
 	
@@ -155,6 +166,32 @@ public class PartidaDeXadrez {
 			}
 		}
 		return false;
+	}
+	
+	private boolean testeChequeMate(Cor cor) {
+		if (!testeCheque(cor)) {
+			return false;
+		}
+		List<Peca> list = pecaDoTabuleiro.stream().filter(x -> ((PecaDeXadrez)x).getCor() == cor).collect(Collectors.toList());
+		for (Peca p : list) {
+			boolean[][] mat = p.possivelMovimentacao();
+			for (int i=0; i<tabuleiro.getLinhas(); i++) {
+				for (int j=0; j<tabuleiro.getLinhas(); j++) {
+					if (mat[i][j]) {
+						Posicao fonte = ((PecaDeXadrez)p).getXadrezPosicao().toPosicao();
+						Posicao alvo = new Posicao(i, j);
+						Peca capturarPeca = realizarMovimento(fonte, alvo); 
+						boolean testeCheque = testeCheque(cor);
+						desfazerMovimento(fonte, alvo, capturarPeca);
+						if (!testeCheque) {
+							return false;
+						}
+					}
+					
+				}
+			}
+		}
+		return true;
 	}
 	
 

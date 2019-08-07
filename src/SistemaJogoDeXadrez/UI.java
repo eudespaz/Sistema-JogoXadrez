@@ -62,10 +62,17 @@ public class UI {
 		printCapituraPecas(capiturada);
 		System.out.println();
 		System.out.println("Turno: " + partidaDeXadrez.getTurno());
-		System.out.println("Aguardando jogador da Cor: " + partidaDeXadrez.getJogadores());
-		if (partidaDeXadrez.getCheque()) {
-			System.out.println("CHEQUE");
+		if (!partidaDeXadrez.getChequeMate()) {
+			System.out.println("Aguardando jogador da Cor: " + partidaDeXadrez.getJogadores());
+			if (partidaDeXadrez.getCheque()) {
+				System.out.println("CHEQUE");
 		}
+	}
+	else {
+		System.out.println("CHEQUEMATE!");
+		System.out.println("Vencedor: " + partidaDeXadrez.getJogadores());
+	}
+		
 	}
 		
 	
