@@ -10,6 +10,7 @@ import gameborda.Tabuleiro;
 import xadrez.pecas.Bispo;
 import xadrez.pecas.Cavalo;
 import xadrez.pecas.Peao;
+import xadrez.pecas.Rainha;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
@@ -210,6 +211,7 @@ public class PartidaDeXadrez {
 			novaCordenadaXadrez('a', 1, new Torre(tabuleiro, Cor.BRANCO));
 			novaCordenadaXadrez('b', 1, new Cavalo(tabuleiro, Cor.BRANCO));
 			novaCordenadaXadrez('c', 1, new Bispo(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('d', 1, new Rainha(tabuleiro, Cor.BRANCO));
 			novaCordenadaXadrez('e', 1, new Rei(tabuleiro, Cor.BRANCO));
 			novaCordenadaXadrez('f', 1, new Bispo(tabuleiro, Cor.BRANCO));
 			novaCordenadaXadrez('g', 1, new Cavalo(tabuleiro, Cor.BRANCO));
@@ -226,6 +228,7 @@ public class PartidaDeXadrez {
 			novaCordenadaXadrez('a', 8, new Torre(tabuleiro, Cor.PRETO));
 			novaCordenadaXadrez('b', 8, new Cavalo(tabuleiro, Cor.PRETO));
 			novaCordenadaXadrez('c', 8, new Bispo(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('d', 8, new Rainha(tabuleiro, Cor.PRETO));
 			novaCordenadaXadrez('e', 8, new Rei(tabuleiro, Cor.PRETO));
 			novaCordenadaXadrez('f', 8, new Bispo(tabuleiro, Cor.PRETO));
 			novaCordenadaXadrez('g', 8, new Cavalo(tabuleiro, Cor.PRETO));
