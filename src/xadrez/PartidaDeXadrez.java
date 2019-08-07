@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import gameborda.Peca;
 import gameborda.Posicao;
 import gameborda.Tabuleiro;
+import xadrez.pecas.Peao;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
@@ -204,19 +205,28 @@ public class PartidaDeXadrez {
 	
 	private void configuracaoInicial() {
 		
-			novaCordenadaXadrez('c', 1, new Torre(tabuleiro, Cor.BRANCO));
-			novaCordenadaXadrez('c', 2, new Torre(tabuleiro, Cor.BRANCO));
-			novaCordenadaXadrez('d', 2, new Torre(tabuleiro, Cor.BRANCO));
-			novaCordenadaXadrez('e', 2, new Torre(tabuleiro, Cor.BRANCO));
-			novaCordenadaXadrez('e', 1, new Torre(tabuleiro, Cor.BRANCO));
-			novaCordenadaXadrez('d', 1, new Rei(tabuleiro, Cor.BRANCO));
-	  
-			novaCordenadaXadrez('c', 7, new Torre(tabuleiro, Cor.PRETO));
-			novaCordenadaXadrez('c', 8, new Torre(tabuleiro, Cor.PRETO));
-			novaCordenadaXadrez('d', 7, new Torre(tabuleiro, Cor.PRETO));
-			novaCordenadaXadrez('e', 7, new Torre(tabuleiro, Cor.PRETO));
-			novaCordenadaXadrez('e', 8, new Torre(tabuleiro, Cor.PRETO));
-			novaCordenadaXadrez('d', 8, new Rei(tabuleiro, Cor.PRETO));
-	        
+			novaCordenadaXadrez('a', 1, new Torre(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('e', 1, new Rei(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('h', 1, new Torre(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('a', 2, new Peao(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('b', 2, new Peao(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('c', 2, new Peao(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('d', 2, new Peao(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('e', 2, new Peao(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('f', 2, new Peao(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('g', 2, new Peao(tabuleiro, Cor.BRANCO));
+			novaCordenadaXadrez('h', 2, new Peao(tabuleiro, Cor.BRANCO));
+			
+			novaCordenadaXadrez('a', 8, new Torre(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('e', 8, new Rei(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('h', 8, new Torre(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('a', 7, new Peao(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('b', 7, new Peao(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('c', 7, new Peao(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('d', 7, new Peao(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('e', 7, new Peao(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('f', 7, new Peao(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('g', 7, new Peao(tabuleiro, Cor.PRETO));
+			novaCordenadaXadrez('h', 7, new Peao(tabuleiro, Cor.PRETO));
 		}
 }
